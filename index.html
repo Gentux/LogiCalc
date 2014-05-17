@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Logic Calculator">
+    <meta name="author" content="Romain Soufflet (Gentux)">
+
+    <title>Logic Calculator</title>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="/bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Logic Calculatrice</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="logicalc-app"></div>
+    </div>
+
+    <div class="container">
+      <hr>
+      <footer>
+        <p class="pull-right">
+          Github : <a href="https://github.com/gentux">github.com/gentux</a><br>
+        </p>
+        <p>
+          Created by <em>Romain Soufflet</em> : <a href="mailto:romain@soufflet.io">romain@soufflet.io</a><br>
+        </p>
+      </footer>
+    </div>
+
+    <script src="/bower_components/requirejs/require.js"></script>
+    <script>
+require.config({
+  "paths": {
+    "app": "/js/app", 
+    "bootstrap": "/bower_components/bootstrap/dist/js/bootstrap.min", 
+    "jquery": "/bower_components/jquery/dist/jquery", 
+    "mout": "/bower_components/mout/src",
+    "ractive": "/bower_components/ractive/ractive.min"
+  }, 
+  "shim": {
+    "jquery": {
+      "exports": "$"
+    }, 
+    "bootstrap": {
+      "exports": "Bootstrap", 
+      "deps": [
+        "jquery"
+      ]
+    }, 
+  }
+});
+define('appconfig', {
+  "debug": false, 
+});
+require(["/js/main.js"]);
+    </script>
+
+  </body>
+</html>

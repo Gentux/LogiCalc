@@ -1,0 +1,32 @@
+{
+  "name": "LogiCalc",
+  "version": "0.1",
+  "authors": [
+    "Romain Soufflet (Gentux)"
+  ],
+  "description": "A human oriented calculator wich display logical information about computation",
+  "keywords": [
+    "human",
+    "calculator",
+    "information",
+    "computation"
+  ],
+  "license": "MIT",
+  "homepage": "https://romain.soufflet.io/logicalc",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "requirejs": "~2.1.11",
+    "mout": "~0.9.1",
+    "html5shiv": "~3.7.2",
+    "respond": "~1.4.2",
+    "ractive": "~0.4.0"
+  }
+}
