@@ -59,6 +59,17 @@
       </footer>
     </div>
 
+    <script id="tmpl" type="text/ractive">
+{{#numbers}}
+  {{# editable === false}}
+<button type="button" class="btn btn-primary" on-click="editable">{{value}}</button>
+  {{/ false}}
+  {{# editable === true}}
+<input type="number" on-change="editable" value={{value}}>
+  {{/ true}}
+{{/numbers}}
+    </script>
+
     <script src="/bower_components/requirejs/require.js"></script>
     <script>
 require.config({
@@ -78,14 +89,10 @@ require.config({
       "deps": [
         "jquery"
       ]
-    }, 
+    }
   }
-});
-define('appconfig', {
-  "debug": false, 
 });
 require(["/js/main.js"]);
     </script>
-
   </body>
 </html>
