@@ -68,6 +68,8 @@
 <input type="number" on-change="editable" value={{value}}>
   {{/ true}}
 {{/numbers}}
+<hr>
+<textarea cols="80" rows="3">{{stringRepresentation}}</textarea>
     </script>
 
     <script src="/bower_components/requirejs/require.js"></script>
@@ -76,7 +78,9 @@ require.config({
   "paths": {
     "app": "/js/app", 
     "bootstrap": "/bower_components/bootstrap/dist/js/bootstrap.min", 
+    "crypto": "/bower_components/crypto/crypto",
     "jquery": "/bower_components/jquery/dist/jquery", 
+    "mathjs": "/bower_components/mathjs/dist/math",
     "mout": "/bower_components/mout/src",
     "ractive": "/bower_components/ractive/ractive.min"
   }, 
@@ -88,6 +92,11 @@ require.config({
       "exports": "Bootstrap", 
       "deps": [
         "jquery"
+      ]
+    },
+    "mathjs": {
+      "deps": [
+        "crypto"
       ]
     }
   }
