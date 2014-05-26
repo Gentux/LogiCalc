@@ -15,22 +15,25 @@ LogiCalc aim to provide:
 * Compute a graph of dependancy between Math variable
 * Provide a simple way to change paramaters value
 
+NOTE: Some of the links below may not work for now. The project is in a development phase.
 
 ## Quick examples ##
 
-TODO
+Try the [demo](http://logicalc.gentux.io)
 
 ## Quick start ##
 
-TODO
+Three quick start options are available:
+* Download the [latest release](http://logicalc.gentux.io/download).
+* Clone the repo: git clone https://github.com/Gentux/LogiCalc.git
+* Install with Bower: bower install logicalc.
+
+Read the [Getting started](http://logicalc.gentux.io/documentation) page for information on the framework contents,
+templates and examples, and more.
 
 ## Further documentation ##
 
-TODO
-
-## Project organization ##
-
-TODO
+Full documentation available at [LogiCalc](http://logicalc.gentux.io/documentation)
 
 ## Legal notices ##
 
