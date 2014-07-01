@@ -12,7 +12,7 @@
   "scripts": {
     "build": "browserify . > js/bundle.js",
     "start": "watchify -o js/bundle.js -v -d .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vows --spec js/tests/*"
   },
   "repository": {
     "type": "git",
