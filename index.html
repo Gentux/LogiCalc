@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,16 +10,10 @@
     <title>Logic Calculator</title>
 
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/index.css">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="/bower_components/html5shiv/dist/html5shiv.js"></script>
-      <script src="/bower_components/respond/dest/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -44,7 +38,64 @@
     </div>
 
     <div class="container">
-      <div class="logicalc-app"></div>
+      <div class="logicalc-app" ng-controller="AmortizationTableCtl">
+        <form class="form-horizontal" ng-submit="compute()" role="form">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Montant du prêt</label>
+            <div class="col-sm-10">
+              <input type="number" ng-model="principalAmount" size="30" placeholder="en €">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Mensualité</label>
+            <div class="col-sm-10">
+              <input type="number" ng-model="periodicAmortizationPayment" size="30" placeholder="en €">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Taux d'intérêt pour chaque période</label>
+            <div class="col-sm-10">
+              <input type="number" ng-model="periodicInterestRate" size="30" placeholder="%">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Nombre de mois</label>
+            <div class="col-sm-10">
+              <input type="number" ng-model="periodicNumber" size="30">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label"> </label>
+            <div class="col-sm-10">
+              <input class="btn btn-primary" type="submit" value="compute">
+              <button class="btn btn-default" ng-click="reset()" type="button">Reset</button>
+            </div>
+          </div>
+        </form>
+
+        <table class="table">
+          <tr>
+            <th>Montant du prêt</th>
+            <td>{{principalAmount}}</td>
+          </tr>
+          <tr>
+            <th>Mensualité</th>
+            <td>{{periodicAmortizationPayment}}</td>
+          </tr>
+          <tr>
+            <th>Taux d'intérêt pour chaque période</th>
+            <td>{{periodicInterestRate}} %</td>
+          </tr>
+          <tr>
+            <th>Nombre de mois</th>
+            <td>{{periodicNumber}}</td>
+          </tr>
+          <tr>
+            <th>Intérêt total</th>
+            <td>{{overallInterest}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <div class="container">
@@ -59,49 +110,6 @@
       </footer>
     </div>
 
-    <script id="tmpl" type="text/ractive">
-{{#numbers}}
-  {{# editable === false}}
-<button type="button" class="btn btn-primary" on-click="editable">{{value}}</button>
-  {{/ false}}
-  {{# editable === true}}
-<input type="number" on-change="editable" value={{value}}>
-  {{/ true}}
-{{/numbers}}
-<hr>
-<textarea cols="80" rows="3" on-change="parse">{{stringRepresentation}}</textarea>
-    </script>
-
-    <script src="/bower_components/requirejs/require.js"></script>
-    <script>
-require.config({
-  "paths": {
-    "app": "/js/app", 
-    "bootstrap": "/bower_components/bootstrap/dist/js/bootstrap.min", 
-    "crypto": "/bower_components/crypto/crypto",
-    "jquery": "/bower_components/jquery/dist/jquery", 
-    "mathjs": "/bower_components/mathjs/dist/math",
-    "mout": "/bower_components/mout/src",
-    "ractive": "/bower_components/ractive/ractive.min"
-  }, 
-  "shim": {
-    "jquery": {
-      "exports": "$"
-    }, 
-    "bootstrap": {
-      "exports": "Bootstrap", 
-      "deps": [
-        "jquery"
-      ]
-    },
-    "mathjs": {
-      "deps": [
-        "crypto"
-      ]
-    }
-  }
-});
-require(["/js/main.js"]);
-    </script>
+    <script src="/js/bundle.js"></script>
   </body>
 </html>
