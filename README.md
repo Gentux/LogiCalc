@@ -1,6 +1,7 @@
 LogiCalc
 ========
 
+Travis :
 [![Build Status](https://travis-ci.org/Gentux/LogiCalc.svg?branch=master)](https://travis-ci.org/Gentux/LogiCalc)
 
 ## Description ##
