@@ -1,0 +1,32 @@
+{
+  "name": "LogiCalc",
+  "version": "0.1.0",
+  "description": "LogiCalc aims to be a calculator, but a good one, something really usable",
+  "keywords": [
+    "computation",
+    "calculus",
+    "linear",
+    "algebra"
+  ],
+  "main": "js/index.js",
+  "scripts": {
+    "build": "browserify . > js/bundle.js",
+    "start": "watchify -o js/bundle.js -v -d .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gentux/LogiCalc.git"
+  },
+  "author": "Romain Soufflet <romain@soufflet.io>",
+  "license": "AGPLv3+",
+  "bugs": {
+    "url": "https://github.com/Gentux/LogiCalc/issues"
+  },
+  "dependencies": {
+    "bootstrap": "^3.1.1",
+    "superagent": "^0.18.0",
+    "mathjs": "^0.24.1",
+    "angular": "^1.2.18"
+  }
+}
