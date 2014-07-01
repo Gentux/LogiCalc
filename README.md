@@ -1,6 +1,8 @@
 LogiCalc
 ========
 
+[![Build Status](https://travis-ci.org/Gentux/LogiCalc.svg?branch=master)](https://travis-ci.org/Gentux/LogiCalc)
+
 ## Description ##
 
 LogiCalc aims to be a calculator, but a good one, something really usable.
