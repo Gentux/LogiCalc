@@ -1,6 +1,6 @@
 /*jshint evil: true */
 
-var mathjs = require('mathjs');
+var mathjs = require("mathjs");
 var math = mathjs();
 
 function help() {
@@ -41,6 +41,5 @@ function help() {
 }
 
 module.exports = {
-  math: math,
-  help: help,
+  math: math
 };

@@ -1,12 +1,12 @@
 /*jshint evil: true */
 
-require('angular');
-var mathLib = require('./lib/math.js');
+require("angular");
+var mathLib = require("./lib/math.js");
 
 var tableauAmortissement = {
-  mensualite: mathLib.math.parse('K * ( r / ( 1 - (( 1 + r ) ^ (-n))))').compile(mathLib.math),
-  interest: mathLib.math.parse('n * M - K').compile(mathLib.math),
-  montant: mathLib.math.parse('M * ( ( 1 - (( 1 + r ) ^ (-n))) / r)').compile(mathLib.math)
+  mensualite: mathLib.math.parse("K * ( r / ( 1 - (( 1 + r ) ^ (-n))))").compile(mathLib.math),
+  interest: mathLib.math.parse("n * M - K").compile(mathLib.math),
+  montant: mathLib.math.parse("M * ( ( 1 - (( 1 + r ) ^ (-n))) / r)").compile(mathLib.math)
 };
 
 //var compundInterestFormula = mathLib.math.parse('V * (1 + p/100)^a');
@@ -18,7 +18,7 @@ var tableauAmortissement = {
 //}));
 
 window.AmortizationTableCtl = function ($scope) {
-  'use strict';
+  "use strict";
 
   $scope.compute = function() {
     var mathScope = {
