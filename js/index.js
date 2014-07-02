@@ -9,14 +9,6 @@ var tableauAmortissement = {
   montant: mathLib.math.parse("M * ( ( 1 - (( 1 + r ) ^ (-n))) / r)").compile(mathLib.math)
 };
 
-//var compundInterestFormula = mathLib.math.parse('V * (1 + p/100)^a');
-//var compundInterestCompiled = compundInterestFormula.compile(mathLib.math);
-//console.log('Compound interest ======  ' + compundInterestCompiled.eval({
-//  V: 4000,  // Initial value
-//  p: 3,     // Interest rate
-//  a: 20     // Number of year
-//}));
-
 window.AmortizationTableCtl = function ($scope) {
   "use strict";
 
