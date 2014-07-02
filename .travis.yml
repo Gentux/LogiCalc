@@ -1,10 +1,7 @@
 language: node_js
 node_js:
   - "0.10"
-before_install:
-  - "npm install vows"
-  - "npm install jshint"
-  - "npm install browserify"
 before_script:
   - "jshint js/"
+after_script:
   - "browserify . > js/bundle.js"

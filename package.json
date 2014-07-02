@@ -28,5 +28,10 @@
     "superagent": "^0.18.0",
     "mathjs": "^0.24.1",
     "angular": "^1.2.18"
+  },
+  "devDependencies": {
+    "vows": "^0.7.0",
+    "browserify": "^4.2.0",
+    "jshint": "^2.5.1"
   }
 }
