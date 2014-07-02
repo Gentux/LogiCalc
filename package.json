@@ -10,7 +10,6 @@
   ],
   "main": "js/index.js",
   "scripts": {
-    "build": "browserify . > js/bundle.js",
     "start": "watchify -o js/bundle.js -v -d .",
     "test": "vows --spec js/tests/*"
   },

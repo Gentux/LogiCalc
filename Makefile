@@ -4,9 +4,9 @@ APP_DIR=js
 TEST_DIR=${APP_DIR}/test
 BUNDLE_JS=${APP_DIR}/bundle.js
 
-all: clean check test
+all: clean check test build
 
-reset: uninstall clean check install test
+reset: uninstall clean check install test build
 
 check:
 	jshint --verbose js/
@@ -16,7 +16,9 @@ clean:
 
 install:
 	npm install
-	npm build
+
+build:
+	browserify . > js/bundle.js
 
 uninstall:
 	rm -rf node_modules
