@@ -95,6 +95,25 @@
             <td>{{overallInterest}}</td>
           </tr>
         </table>
+
+        <table class="table" ng-show="entries.length > 0">
+          <tr>
+            <th>Numéro</th>
+            <th>Date</th>
+            <th>Capital restant</th>
+            <th>Mensualité</th>
+            <th>Dont capital</th>
+            <th>Dont intérêt</th>
+          </tr>
+          <tr ng-repeat="entry in entries">
+            <td>{{entry.idx}}</td>
+            <td>{{entry.date}}</td>
+            <td>{{entry.remainingCapital}}</td>
+            <td>{{periodicAmortizationPayment}}</td>
+            <td>{{entry.periodicAmortizationPaymentCapital}}</td>
+            <td>{{entry.periodicAmortizationPaymentInterest}}</td>
+          </tr>
+        </table>
       </div>
     </div>
 

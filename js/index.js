@@ -19,15 +19,31 @@ window.AmortizationTableCtl = function ($scope) {
       r: $scope.periodicInterestRate / ($scope.periodicNumber * 100)
     };
 
-    $scope.periodicAmortizationPayment = Math.round(tableauAmortissement.mensualite.eval(mathScope) * 100) / 100;
+    $scope.periodicAmortizationPayment = mathLib.round(tableauAmortissement.mensualite.eval(mathScope), 2);
     mathScope.M = $scope.periodicAmortizationPayment;
-    $scope.overallInterest = Math.round(tableauAmortissement.interest.eval(mathScope) * 100) / 100;
+    $scope.overallInterest = mathLib.round(tableauAmortissement.interest.eval(mathScope), 2);
     mathScope.I = $scope.overallInterest;
 
-    //$scope.n = 24;
-    //$scope.M = 200;
-    //$scope.r = 1 / 100;
-    //$scope.K = tableauAmortissement.montant.eval(scope);
+    $scope.entries = [];
+    for (var i = 0; i < $scope.periodicNumber; i++) {
+      var entry = {
+        idx: i,
+        date: "now",
+      };
+      entry.remainingCapital = mathLib.round(
+        ($scope.principalAmount + $scope.overallInterest) - (i * $scope.periodicAmortizationPayment),
+        2
+      );
+      entry.periodicAmortizationPaymentInterest = mathLib.round(
+        $scope.overallInterest / $scope.periodicNumber,
+        2
+      );
+      entry.periodicAmortizationPaymentCapital = mathLib.round(
+        $scope.periodicAmortizationPayment - entry.periodicAmortizationPaymentInterest,
+        2
+      );
+      $scope.entries.push(entry);
+    }
   };
 
   $scope.reset = function() {
@@ -37,5 +53,6 @@ window.AmortizationTableCtl = function ($scope) {
     $scope.periodicInterest = 0;
     $scope.periodicNumber = 0;
     $scope.overallInterest = 0;
+    $scope.entries = [];
   };
 };
